@@ -1,0 +1,163 @@
+\documentclass[a4paper, landscape]{article}
+
+% Definitions
+\usepackage[height=25cm]{geometry}
+\usepackage{timetable}
+
+\usepackage{geometry}
+ \geometry{
+   a4paper,
+   left=15mm,
+   right=15mm,
+   top=5mm,
+   bottom=25mm,
+ }
+
+\begin{document}
+\thispagestyle{empty}
+
+% Define the layout of your time tables
+\setslotsize{3cm}{0.35cm}
+
+% Number of columns and rows
+\setslotcount{5}{48}
+
+% Top margin
+\settopheight{2}
+
+% Style for time
+\settimestyle{\scriptsize}
+
+% Padding
+\settextframe{1.3mm}
+
+% Style for Lecturer and Location
+\setbottomstyle{\scriptsize}
+
+% No space at bottom of event
+\setbottomspace{0mm}
+
+% I am not a zebra
+\setframetype[t]{0}
+
+% A tiny radius just for fun
+\seteventcornerradius{2pt}
+
+% Print timestamps into event blocks
+\setprinttimestamps{2}
+
+% Define event types
+
+\defineevent{lecture}
+{0.3}{0.3}{0.3}
+{1.0}{1.0}{1.0}
+
+\defineevent{tutorial}
+{0.9}{0.9}{0.9}
+{0}{0}{0}
+
+% Start the time table
+\begin{timetable}
+  \hours{8}{15}{1}
+  \englishdays{1}
+
+  % Monday
+  \event 1 {0915} {1100}
+  {Algorithmen und Datenstrukturen}
+  {M. Püschel}
+  {?}
+  {tutorial}
+
+  \event 1 {1315} {1500}
+  {Diskrete Mathematik}
+  {U. Maurer}
+  {HG E 7/5}
+  {lecture}
+
+  \event 1 {1730} {1900}
+  {Diskrete Mathematik Fragestunde}
+  {U. Maurer}
+  {?}
+  {tutorial}
+
+  % Tuesday
+
+  \event 2 {0815} {1000}
+  {Theoretische Informatik}
+  {J. Hromkovic}
+  {HG G 5}
+  {lecture}
+
+  \event 2 {1315} {1500}
+  {Theoretische Informatik}
+  {J. Hromkovic}
+  {?}
+  {tutorial}
+
+  \event 2 {1515} {1700}
+  {Diskrete Mathematik}
+  {A. Schäfer}
+  {ETZ E 6}
+  {tutorial}
+
+  % Wednesday
+
+  \event 3 {1015} {1200}
+  {Lineare Algebra}
+  {Ö. Imamoglu}
+  {HG E 5/7}
+  {lecture}
+
+  \event 3 {1315} {1500}
+  {Diskrete Mathematik}
+  {U. Maurer}
+  {HG E 5/7}
+  {lecture}
+
+  \event 3 {1515} {1700}
+  {Theoretische Informatik}
+  {J. Hromkovic}
+  {HG E 5/7}
+  {tutorial}
+
+  % Thursday
+
+  \event 4 {1015} {1200}
+  {Algorithmen und Datenstrukturen}
+  {M. Püschel}
+  {?}
+  {lecture}
+
+  \event 4 {1315} {1400}
+  {...}
+  {}
+  {}
+  {lecture}
+
+  % Friday
+
+  \event 5 {0815} {1000}
+  {Theoretische Informatik}
+  {J. Hromkovic}
+  {HG G 5}
+  {lecture}
+
+  \event 5 {1015} {1200}
+  {Lineare Algebra}
+  {Ö. Imamoglu}
+  {HG E 5/7}
+  {lecture}
+
+  \event 5 {1315} {1500}
+  {Lineare Algebra}
+  {O. Glauser}
+  {ML H 34.3}
+  {tutorial}
+
+\end{timetable}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
