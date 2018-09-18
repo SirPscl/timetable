@@ -1,3 +1,8 @@
+Fork for personal use
+
+Changes:
+ - Can show longer lecturer and location names
+
 # Timetable
 
 ## How it's going to look like
@@ -28,4 +33,3 @@ and directly with pdfLaTeX
 The timetable LaTeX style sheet is free software. You can redistribute and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation. You may use version 3 of the license, or (at your option) any later version.
 
 If you decide to redistribute this package, please leave the name of the original author, Pascal Gwosdek, in the header of the file or move it into a file AUTHORS.
-
