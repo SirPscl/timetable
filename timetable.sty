@@ -259,12 +259,12 @@
     \addtolength{\@newrowtop}{1pt}
 
     \renewcommand{\baselinestretch}{0.5}\normalsize
-    \setlength{\@newrowtop}{-#2\@rowheight-#3\@rowheight}
+    \setlength{\@newrowtop}{-#2\@rowheight-#3\@rowheight+2\@textframe+\@bottomspace}
     \addtolength{\@newrowtop}{2\@textframe + \@bottomspace}
 
     % Lecturer
     \put(\strip@pt\@newcolleft,\strip@pt\@newrowtop)
-        {\begin{minipage}[t]{0.6\@newcolwidth}%
+        {\begin{minipage}[t]{\@newcolwidth}%
 	  \@ttfont\raggedright\color{@timetable#7text}{\@bottomstyle #5%
             \vphantom{A}}
             \ifthenelse{\value{@printtimestamps} = 1}%
@@ -272,13 +272,13 @@
               {}%
           \end{minipage}}
 
-    \setlength{\@newcolleft}{#1\@colwidth + \@colwidth}
-    \addtolength{\@newcolleft}{-\@textframe-0.4\@newcolwidth}
+    \setlength{\@newrowtop}{-#2\@rowheight-#3\@rowheight}
+    \addtolength{\@newrowtop}{2\@textframe + \@bottomspace}
 
     % Location
     \put(\strip@pt\@newcolleft,\strip@pt\@newrowtop)
-      {\begin{minipage}[t]{0.4\@newcolwidth}%
-        \@ttfont\raggedleft\color{@timetable#7text}{\@bottomstyle #6%
+      {\begin{minipage}[t]{\@newcolwidth}%
+        \@ttfont\raggedright\color{@timetable#7text}{\@bottomstyle #6%
           \vphantom{A}}%
       \end{minipage}}
 
@@ -297,7 +297,7 @@
 
       \setcounter{@endHour}{#3 / 100}
       \setcounter{@endMinute}{#3 - #3 / 100 * 100}
-	
+
       \setcounter{@hourslot}{((#2 - \value{@hourzero}) / 100 * (60 / \value{@minutesperslot})) + 2 + ((#2 - #2 / 100 * 100) / \value{@minutesperslot})}
       \setcounter{@durationslots}{((#3 - \value{@hourzero}) / 100 * (60 / \value{@minutesperslot})) + 2 + ((#3 - #3 / 100 * 100) / \value{@minutesperslot}) - \value{@hourslot}}
 
@@ -458,7 +458,7 @@
 	  	\timemark{\@fmtTime{@hour}{@minute}\ifthenelse{#3 > 0}{-\setcounter{@hour}{\value{@hour}+1}\@fmtTime{@hour}{@minute}\setcounter{@hour}{\value{@hour}-1}}{}}
 	  }{\stepcounter{@timemarks}}
 	  \addtocounter{@minute}{#2}
-	  \ifthenelse{\value{@minute} = 60}{\stepcounter{@hour}\setcounter{@minute}{0}}{}	
+	  \ifthenelse{\value{@minute} = 60}{\stepcounter{@hour}\setcounter{@minute}{0}}{}
       \ifthenelse{\value{@hour} > 23}{\addtocounter{@hour}{-24}}{}
     }
   }
@@ -523,7 +523,7 @@
     % Minipage to correct bounding box
     \begin{minipage}[t][-\@totalheight]{\@totalwidth}
     %
-    % Begin. Note the offset hack of the picture, this is to make it consistent to the old pstricks package. 
+    % Begin. Note the offset hack of the picture, this is to make it consistent to the old pstricks package.
     \begin{picture}(\strip@pt\@totalwidth,\strip@pt\@totalheight)(0,-\strip@pt\baselineskip)
       % Draw the grey frame
       \put(0,\strip@pt\@totalheight){\textcolor{ttframecol1}{\rule[-\dp\strutbox]{\@colwidth}{-\@totalheight}}}
@@ -549,3 +549,8 @@
 
     \end{minipage}
   }
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "semester_1.tex"
+%%% End:
